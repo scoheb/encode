@@ -1,0 +1,44 @@
+<ges version='0.7'>
+  <project properties='properties;' metadatas='metadatas, author=(string)&quot;Scott\ Hebert&quot;, scaled_proxy_width=(int)0, scaled_proxy_height=(int)0, pitivi::title_safe_area_vertical=(double)0.80000000000000004, pitivi::title_safe_area_horizontal=(double)0.80000000000000004, pitivi::action_safe_area_vertical=(double)0.90000000000000002, pitivi::action_safe_area_horizontal=(double)0.90000000000000002, render-scale=(double)100, pitivi::project-id=(string)04cc6520df444c4d941a8694f06f1796, format-version=(string)0.7;'>
+    <encoding-profiles>
+      <encoding-profile name='pitivi-profile' description='Pitivi encoding profile' type='container' preset-name='webmmux' format='video/webm' >
+        <stream-profile parent='pitivi-profile' id='0' type='video' presence='0' format='video/x-vp8, profile=(string){ 0, 1, 2, 3 }' preset-name='vp8enc' restriction='video/x-raw, width=(int)1920, height=(int)1080, framerate=(fraction)60/1, pixel-aspect-ratio=(fraction)1/1' pass='0' variableframerate='0' />
+        <stream-profile parent='pitivi-profile' id='1' type='audio' presence='0' format='audio/x-vorbis, rate=(int)[ 1, 200000 ], channels=(int)[ 1, 255 ]' preset-name='vorbisenc' restriction='audio/x-raw, rate=(int)48000, channels=(int)2' />
+      </encoding-profile>
+    </encoding-profiles>
+    <ressources>
+      <asset id='file:///home/shebert/M5-Demo-1.mkv' extractable-type-name='GESUriClip' properties='properties, supported-formats=(int)6, duration=(guint64)1089950000000;' metadatas='metadatas, container-format=(string)Matroska, audio-codec=(string)&quot;MPEG-4\ AAC\ audio&quot;, language-code=(string)und, title=(string)simple_aac_recording, encoder=(string)Lavf59.16.100, extended-comment=(string)&quot;DURATION\=00:18:09.920000000&quot;, video-codec=(string)H264, file-size=(guint64)56907556, pitivi::tags=(string)&quot;&quot;;' >
+        <stream-info id='a10d7e30f6f9787fd78b1fbbcc5eab884beea136e7871a1a4fa706958d58db35/002:18166911092205119334' extractable-type-name='GESAudioUriSource' properties='properties, track-type=(int)2;' metadatas='metadatas;' caps='audio/mpeg, mpegversion=(int)4, framed=(boolean)true, stream-format=(string)raw, codec_data=(buffer)1190, level=(string)2, base-profile=(string)lc, profile=(string)lc, channels=(int)2, rate=(int)48000'/>
+        <stream-info id='a10d7e30f6f9787fd78b1fbbcc5eab884beea136e7871a1a4fa706958d58db35/001:15203983253535136587' extractable-type-name='GESVideoUriSource' properties='properties, track-type=(int)4;' metadatas='metadatas;' caps='video/x-h264, level=(string)4.2, profile=(string)high, stream-format=(string)byte-stream, alignment=(string)au, width=(int)1920, height=(int)1080, framerate=(fraction)60/1, colorimetry=(string)bt709, pixel-aspect-ratio=(fraction)1/1, chroma-format=(string)4:2:0, bit-depth-luma=(uint)8, bit-depth-chroma=(uint)8, parsed=(boolean)true'/>
+      </asset>
+      <asset id='crossfade' extractable-type-name='GESTransitionClip' properties='properties, supported-formats=(int)6;' metadatas='metadatas, description=(string)GES_VIDEO_STANDARD_TRANSITION_TYPE_CROSSFADE;' >
+      </asset>
+    </ressources>
+    <timeline properties='properties, auto-transition=(boolean)true, snapping-distance=(guint64)2528358064;' metadatas='metadatas, markers=(GESMarkerList)&quot;marker-list-flags, flags=(int)0&quot;, duration=(guint64)655650000000;'>
+      <track caps='video/x-raw(ANY)' track-type='4' track-id='0' properties='properties, message-forward=(boolean)true, restriction-caps=(string)&quot;video/x-raw\,\ width\=\(int\)1920\,\ height\=\(int\)1080\,\ framerate\=\(fraction\)60/1\,\ pixel-aspect-ratio\=\(fraction\)1/1&quot;, id=(string)392b86fcd267d1e4d60b1940cb9567dc;' metadatas='metadatas;'/>
+      <track caps='audio/x-raw(ANY)' track-type='2' track-id='1' properties='properties, message-forward=(boolean)true, restriction-caps=(string)&quot;audio/x-raw\,\ rate\=\(int\)48000\,\ channels\=\(int\)2&quot;, id=(string)510b0184d86fb86ca6650a271ced85a7;' metadatas='metadatas;'/>
+      <layer priority='0' properties='properties, auto-transition=(boolean)true;' metadatas='metadatas, volume=(float)1;'>
+        <clip id='0' asset-id='file:///home/shebert/M5-Demo-1.mkv' type-name='GESUriClip' layer-priority='0' track-types='6' start='0' duration='462566666667' inpoint='0' rate='0' properties='properties, name=(string)uriclip2;' metadatas='metadatas;'>
+          <source track-id='1' properties='properties, track-type=(int)2, has-internal-source=(boolean)true;' metadatas='metadatas;'  children-properties='properties, GstVolume::mute=(boolean)false, GstVolume::volume=(double)1;'>
+            <binding type='direct' source_type='interpolation' property='volume' mode='1' track_id='1' values =' 0:0.10000000149011612  462566666667:0.10000000149011612 '/>
+          </source>
+          <source track-id='0' properties='properties, track-type=(int)4, has-internal-source=(boolean)true;' metadatas='metadatas;'  children-properties='properties, GstFramePositioner::alpha=(double)1, GstFramePositioner::height=(int)1080, GstFramePositioner::operator=(int)1, GstFramePositioner::posx=(int)0, GstFramePositioner::posy=(int)0, GstVideoDirection::video-direction=(int)8, GstFramePositioner::width=(int)1920;'>
+            <binding type='direct' source_type='interpolation' property='alpha' mode='1' track_id='0' values =' 0:1  438417288305:1  462566666667:1 '/>
+          </source>
+        </clip>
+        <clip id='1' asset-id='file:///home/shebert/M5-Demo-1.mkv' type-name='GESUriClip' layer-priority='0' track-types='6' start='462566666667' duration='193083333333' inpoint='896866666667' rate='0' properties='properties, name=(string)uriclip4;' metadatas='metadatas;'>
+          <source track-id='1' properties='properties, track-type=(int)2, has-internal-source=(boolean)true;' metadatas='metadatas;'  children-properties='properties, GstVolume::mute=(boolean)false, GstVolume::volume=(double)1;'>
+            <binding type='direct' source_type='interpolation' property='volume' mode='1' track_id='1' values =' 896866666667:0.10000000149011612  1089950000000:0.10000000149011612 '/>
+          </source>
+          <source track-id='0' properties='properties, track-type=(int)4, has-internal-source=(boolean)true;' metadatas='metadatas;'  children-properties='properties, GstFramePositioner::alpha=(double)1, GstFramePositioner::height=(int)1080, GstFramePositioner::operator=(int)1, GstFramePositioner::posx=(int)0, GstFramePositioner::posy=(int)0, GstVideoDirection::video-direction=(int)8, GstFramePositioner::width=(int)1920;'>
+            <binding type='direct' source_type='interpolation' property='alpha' mode='1' track_id='0' values =' 896866666667:1  1089950000000:1 '/>
+          </source>
+        </clip>
+      </layer>
+      <layer priority='1' properties='properties, auto-transition=(boolean)true;' metadatas='metadatas, volume=(float)1;'>
+      </layer>
+      <groups>
+      </groups>
+    </timeline>
+  </project>
+</ges>
